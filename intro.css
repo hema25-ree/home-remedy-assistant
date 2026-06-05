@@ -6,17 +6,18 @@
 }
 
 body{
-    height:100vh;
+    margin:0;
+    min-height:100vh;
+    overflow:hidden;
 
     background:
-    linear-gradient(
-    rgba(0,0,0,0.45),
-    rgba(0,0,0,0.45)),
-    url("https://images.unsplash.com/photo-1514996937319-344454492b37");
+    radial-gradient(circle at 20% 20%, #d4a017 0%, transparent 25%),
+    radial-gradient(circle at 80% 30%, #6b8e23 0%, transparent 25%),
+    radial-gradient(circle at 70% 80%, #8fbc8f 0%, transparent 30%),
+    radial-gradient(circle at 30% 75%, #556b2f 0%, transparent 25%),
+    linear-gradient(135deg,#2e4d2e,#5c4033,#3d5a40);
 
     background-size:cover;
-    background-position:center;
-
     display:flex;
     justify-content:center;
     align-items:center;
