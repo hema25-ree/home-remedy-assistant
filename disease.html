@@ -6,49 +6,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Namma Veetu Maruthuvam</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 body{
-    font-family:Arial,sans-serif;
-    background:#f4fff4;
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#e8f5e9,#f1f8e9);
     padding:20px;
-    line-height:1.8;
 }
 
+/* Container */
 .container{
     max-width:900px;
     margin:auto;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 0 12px rgba(0,0,0,0.1);
-}
-
-h1{
-    color:#2e7d32;
-    text-transform:capitalize;
-}
-
+/* Back Button */
 .back-btn{
     display:inline-block;
     margin-bottom:20px;
-    padding:10px 15px;
+    padding:10px 18px;
     background:#2e7d32;
     color:white;
     text-decoration:none;
-    border-radius:6px;
+    border-radius:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+.back-btn:hover{
+    background:#1b5e20;
+    transform:scale(1.05);
 }
 
+/* Main Card */
+.card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    animation:fadeIn 0.5s ease-in-out;
+}
+
+/* Title */
+h1{
+    color:#1b5e20;
+    font-size:32px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* Section box */
 .section{
-    margin-bottom:18px;
+    background:#f9fff9;
+    padding:15px;
+    border-left:5px solid #43a047;
+    border-radius:10px;
+    margin-bottom:15px;
+    transition:0.3s;
 }
 
+.section:hover{
+    transform:scale(1.02);
+    background:#e8f5e9;
+}
+
+/* English text */
+.section p{
+    font-size:17px;
+    margin:5px 0;
+}
+
+/* Tamil text */
 .tamil{
     color:#444;
+    font-size:16px;
     font-style:italic;
 }
+
+/* Simple animation */
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
 </style>
 
 </head>
@@ -57,7 +98,7 @@ h1{
 
 <div class="container">
 
-<a href="index.html" class="back-btn">← Back</a>
+<a href="index.html" class="back-btn">← Back to Home</a>
 
 <div class="card">
 
@@ -74,7 +115,7 @@ h1{
 const diseases = {
 
 fever:{
-title:"Fever (காய்ச்சல்)",
+title:"🤒 Fever (காய்ச்சல்)",
 content:`
 <div class="section">
 <p>Fever is a condition where body temperature increases due to infection or illness.</p>
@@ -82,188 +123,53 @@ content:`
 </div>
 
 <div class="section">
-<p>Drinking coriander seed water helps to reduce body heat naturally.</p>
-<p class="tamil">கொத்தமல்லி கஷாயம் குடிப்பது உடல் சூட்டை குறைக்க உதவுகிறது.</p>
+<p>Drink coriander seed water or raisin water to reduce body heat naturally.</p>
+<p class="tamil">கொத்தமல்லி அல்லது உலர் திராட்சை நீர் குடிப்பது உடல் சூட்டை குறைக்க உதவுகிறது.</p>
 </div>
 
 <div class="section">
-<p>Drinking honey mixed with warm water gives energy and soothes the body.</p>
-<p class="tamil">தேன் கலந்த சூடான நீர் குடிப்பது உடலுக்கு சக்தி அளித்து நிம்மதி தருகிறது.</p>
+<p>Drink warm honey water to gain energy and relax the body.</p>
+<p class="tamil">தேன் கலந்த சூடான நீர் உடலுக்கு சக்தி அளித்து நிம்மதி தருகிறது.</p>
 </div>
 
 <div class="section">
-<p>Wiping the body with cold water cloth helps to bring down fever.</p>
-<p class="tamil">குளிர்ந்த நீர் துணியால் உடலை துடைப்பது காய்ச்சலை குறைக்க உதவுகிறது.</p>
+<p>Wipe body with cold cloth to reduce fever quickly.</p>
+<p class="tamil">குளிர்ந்த துணியால் உடலை துடைப்பது காய்ச்சலை குறைக்க உதவுகிறது.</p>
 </div>
 `
 },
 
 cold:{
-title:"Cold and Cough (சளி மற்றும் இருமல்)",
+title:"🤧 Cold & Cough (சளி மற்றும் இருமல்)",
 content:`
 <div class="section">
-<p>Cold and cough are common infections that affect the nose and throat.</p>
-<p class="tamil">சளி மற்றும் இருமல் என்பது மூக்கு மற்றும் தொண்டையை பாதிக்கும் பொதுவான தொற்று.</p>
+<p>Cold and cough affect nose and throat due to infection.</p>
+<p class="tamil">சளி மற்றும் இருமல் மூக்கு மற்றும் தொண்டையை பாதிக்கும் தொற்று.</p>
 </div>
 
 <div class="section">
-<p>Drinking ginger and tulsi tea helps to clear throat and reduce cough.</p>
-<p class="tamil">இஞ்சி மற்றும் துளசி தேநீர் குடிப்பது தொண்டை சுத்தமாகி இருமலை குறைக்கிறது.</p>
+<p>Drink ginger and tulsi tea to clear throat.</p>
+<p class="tamil">இஞ்சி துளசி தேநீர் குடிப்பது தொண்டையை சுத்தப்படுத்தும்.</p>
 </div>
 
 <div class="section">
-<p>Honey with pepper helps to reduce dry cough naturally.</p>
-<p class="tamil">தேன் மற்றும் மிளகு சேர்த்து எடுத்தால் உலர் இருமல் குறையும்.</p>
-</div>
-
-<div class="section">
-<p>Steam inhalation helps to open blocked nose and gives instant relief.</p>
-<p class="tamil">நீராவி சுவாசம் மூக்கடைப்பை திறந்து உடனடி நிம்மதி தருகிறது.</p>
+<p>Steam inhalation gives instant relief from blocked nose.</p>
+<p class="tamil">நீராவி சுவாசம் மூக்கடைப்பை உடனடியாக சரிசெய்கிறது.</p>
 </div>
 `
 },
 
 headache:{
-title:"Headache (தலைவலி)",
+title:"🤕 Headache (தலைவலி)",
 content:`
 <div class="section">
-<p>Headache is pain in the head caused by stress, fever, or tiredness.</p>
-<p class="tamil">தலைவலி என்பது மன அழுத்தம், காய்ச்சல் அல்லது சோர்வு காரணமாக ஏற்படும் வலி.</p>
+<p>Headache is pain caused by stress or tiredness.</p>
+<p class="tamil">தலைவலி மன அழுத்தம் அல்லது சோர்வால் ஏற்படும் வலி.</p>
 </div>
 
 <div class="section">
-<p>Applying coconut oil mixed with camphor helps to reduce headache.</p>
-<p class="tamil">தேங்காய் எண்ணெய் மற்றும் கற்பூரம் கலந்து தடவினால் தலைவலி குறையும்.</p>
-</div>
-
-<div class="section">
-<p>Drinking ginger tea improves blood flow and reduces pain.</p>
-<p class="tamil">இஞ்சி தேநீர் குடிப்பது இரத்த ஓட்டத்தை மேம்படுத்தி வலியை குறைக்கிறது.</p>
-</div>
-`
-},
-
-stomachache:{
-title:"Stomach Ache (வயிற்று வலி)",
-content:`
-<div class="section">
-<p>Stomach ache is pain in the abdomen due to digestion problems.</p>
-<p class="tamil">வயிற்று வலி என்பது செரிமான பிரச்சனையால் ஏற்படும் வலி.</p>
-</div>
-
-<div class="section">
-<p>Drinking cumin water helps in digestion and reduces pain.</p>
-<p class="tamil">சீரக நீர் குடிப்பது செரிமானத்தை மேம்படுத்தி வலியை குறைக்கிறது.</p>
-</div>
-
-<div class="section">
-<p>Fennel seed water helps to reduce gas and stomach discomfort.</p>
-<p class="tamil">சோம்பு நீர் வாயு மற்றும் வயிற்று உப்புசத்தை குறைக்கிறது.</p>
-</div>
-`
-},
-
-acidity:{
-title:"Acidity (அசிடிட்டி)",
-content:`
-<div class="section">
-<p>Acidity is caused by excess acid in the stomach.</p>
-<p class="tamil">அசிடிட்டி என்பது வயிற்றில் அதிக அமிலம் உருவாகும் நிலை.</p>
-</div>
-
-<div class="section">
-<p>Buttermilk helps to cool the stomach and reduce acidity.</p>
-<p class="tamil">மோர் குடிப்பது வயிற்றை குளிர்வித்து அசிடிட்டியை குறைக்கிறது.</p>
-</div>
-
-<div class="section">
-<p>Banana helps to balance stomach acid naturally.</p>
-<p class="tamil">வாழைப்பழம் வயிற்று அமிலத்தை சமப்படுத்த உதவுகிறது.</p>
-</div>
-
-<div class="section">
-<p>Avoid oily and spicy foods to prevent acidity.</p>
-<p class="tamil">எண்ணெய் மற்றும் கார உணவுகளை தவிர்ப்பது அசிடிட்டியை தடுக்கிறது.</p>
-</div>
-`
-},
-
-constipation:{
-title:"Constipation (மலச்சிக்கல்)",
-content:`
-<div class="section">
-<p>Constipation is difficulty in passing stools regularly.</p>
-<p class="tamil">மலச்சிக்கல் என்பது மலத்தை சீராக வெளியேற்ற முடியாத நிலை.</p>
-</div>
-
-<div class="section">
-<p>Drinking warm water in the morning helps digestion.</p>
-<p class="tamil">காலை சூடான நீர் குடிப்பது செரிமானத்தை மேம்படுத்துகிறது.</p>
-</div>
-
-<div class="section">
-<p>Eating fiber-rich fruits and vegetables helps bowel movement.</p>
-<p class="tamil">நார்ச்சத்து நிறைந்த பழங்கள் மற்றும் காய்கறிகள் குடல் இயக்கத்தை மேம்படுத்தும்.</p>
-</div>
-`
-},
-
-diarrhoea:{
-title:"Diarrhoea (வயிற்றுப்போக்கு)",
-content:`
-<div class="section">
-<p>Diarrhoea is frequent loose motion caused by infection or food issues.</p>
-<p class="tamil">வயிற்றுப்போக்கு என்பது தொற்று அல்லது உணவு காரணமாக ஏற்படும் தளர்ந்த மலம்.</p>
-</div>
-
-<div class="section">
-<p>Drinking rice porridge helps to restore energy.</p>
-<p class="tamil">கஞ்சி குடிப்பது உடலுக்கு சக்தி தருகிறது.</p>
-</div>
-
-<div class="section">
-<p>Drink plenty of water to avoid dehydration.</p>
-<p class="tamil">நீரிழப்பு ஏற்படாமல் நிறைய தண்ணீர் குடிக்க வேண்டும்.</p>
-</div>
-`
-},
-
-asthma:{
-title:"Asthma (ஆஸ்துமா)",
-content:`
-<div class="section">
-<p>Asthma is a breathing problem caused by blocked airways.</p>
-<p class="tamil">ஆஸ்துமா என்பது காற்றுப்பாதை அடைபடுவதால் ஏற்படும் சுவாச பிரச்சனை.</p>
-</div>
-
-<div class="section">
-<p>Drinking tulsi water helps to improve breathing.</p>
-<p class="tamil">துளசி நீர் குடிப்பது சுவாசத்தை மேம்படுத்துகிறது.</p>
-</div>
-
-<div class="section">
-<p>Practicing pranayama improves lung capacity.</p>
-<p class="tamil">சுவாச பயிற்சி நுரையீரல் திறனை மேம்படுத்துகிறது.</p>
-</div>
-`
-},
-
-allergy:{
-title:"Skin Allergy (தோல் அலர்ஜி)",
-content:`
-<div class="section">
-<p>Skin allergy is irritation or rash on the skin.</p>
-<p class="tamil">தோல் அலர்ஜி என்பது தோலில் ஏற்படும் அரிப்பு அல்லது சிரங்கு.</p>
-</div>
-
-<div class="section">
-<p>Applying aloe vera gel soothes the skin.</p>
-<p class="tamil">ஆலோவேரா ஜெல் தோலை குளிர்வித்து நிம்மதி தருகிறது.</p>
-</div>
-
-<div class="section">
-<p>Turmeric paste helps to reduce infection and inflammation.</p>
-<p class="tamil">மஞ்சள் பூச்சு தொற்று மற்றும் வீக்கத்தை குறைக்கிறது.</p>
+<p>Apply coconut oil with camphor for relief.</p>
+<p class="tamil">தேங்காய் எண்ணெய் மற்றும் கற்பூரம் தடவினால் நிவாரணம் கிடைக்கும்.</p>
 </div>
 `
 }
@@ -275,15 +181,14 @@ const disease = params.get("name");
 
 const data = diseases[disease];
 
-if(data){
-document.getElementById("title").innerText = data.title;
-document.getElementById("content").innerHTML = data.content;
-}
-else{
-document.getElementById("title").innerText = "Disease Not Found";
-}
+document.getElementById("title").innerText =
+data ? data.title : "Disease Not Found";
+
+document.getElementById("content").innerHTML =
+data ? data.content : "";
 </script>
 
 </body>
 </html>
+
 
