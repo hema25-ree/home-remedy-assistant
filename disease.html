@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Details</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f4fff4;
+    padding:20px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#2e7d32;
+    margin-bottom:15px;
+}
+
+h2{
+    color:#2e7d32;
+    margin-top:20px;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-bottom:20px;
+    padding:10px 15px;
+    background:#2e7d32;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-btn">← Back to Diseases</a>
+
+<div class="card">
+
+<h1 id="title">Disease</h1>
+
+<h2>Symptoms</h2>
+<p id="symptoms"></p>
+
+<h2>Home Remedies</h2>
+<p id="remedies"></p>
+
+<h2>Precautions</h2>
+<p id="precautions"></p>
+
+</div>
+
+</div>
+
+<script>
+
+const diseases = {
+
+fever:{
+title:"Fever",
+symptoms:"High temperature, sweating, chills, weakness.",
+remedies:"Coriander Seed Tea, Raisin Water, Warm water with honey and lemon, plenty of rest and hydration.",
+precautions:"Consult a doctor if fever remains high or lasts more than 3 days."
+},
+
+cold:{
+title:"Cold & Cough",
+symptoms:"Runny nose, sneezing, sore throat, cough.",
+remedies:"Pepper and Ginger Tea, Tulsi Decoction with Honey, Steam Inhalation, Camphor + Coconut Oil Application.",
+precautions:"Drink warm fluids and avoid cold foods."
+},
+
+headache:{
+title:"Headache",
+symptoms:"Pain in head, pressure around forehead, fatigue.",
+remedies:"Ginger Tea, Mint Tea, Eucalyptus Aroma, Camphor + Coconut Oil.",
+precautions:"Stay hydrated and get sufficient sleep."
+},
+
+migraine:{
+title:"Migraine",
+symptoms:"Severe headache, nausea, sensitivity to light.",
+remedies:"Dry Ginger Paste with Milk, Apply on forehead, Rest in dark room.",
+precautions:"Avoid loud noises and bright lights."
+},
+
+stomachache:{
+title:"Stomach Ache",
+symptoms:"Abdominal pain, bloating, discomfort.",
+remedies:"Cumin Water, Fennel Water with Honey, Aloe Vera Juice.",
+precautions:"Avoid spicy and oily foods."
+},
+
+acidity:{
+title:"Acidity",
+symptoms:"Heartburn, indigestion, stomach discomfort.",
+remedies:"Buttermilk, Banana, Fennel Seed Water, Avoid oily foods.",
+precautions:"Eat small meals and avoid late-night eating."
+},
+
+constipation:{
+title:"Constipation",
+symptoms:"Difficulty passing stools, bloating.",
+remedies:"Fiber-rich fruits and vegetables, Warm Water, Ghee with Warm Water, Soaked Raisins.",
+precautions:"Increase water intake and exercise regularly."
+},
+
+diarrhoea:{
+title:"Diarrhoea",
+symptoms:"Loose stools, dehydration, stomach cramps.",
+remedies:"Rice Gruel with Salt, Pomegranate Juice, Buttermilk with Nutmeg, plenty of water.",
+precautions:"Stay hydrated and seek medical help if severe."
+},
+
+asthma:{
+title:"Asthma",
+symptoms:"Shortness of breath, wheezing, chest tightness.",
+remedies:"Ginger Juice, Coriander Seed Water, Pranayama, Avoid dust and smoke.",
+precautions:"Keep away from triggers and follow medical advice."
+},
+
+allergy:{
+title:"Allergy & Skin Problems",
+symptoms:"Itching, redness, skin irritation.",
+remedies:"Neem Leaf Paste, Aloe Vera Gel, Turmeric + Coconut Oil, Drink enough water.",
+precautions:"Avoid known allergens and maintain hygiene."
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const disease = params.get("name");
+
+if(diseases[disease]){
+
+document.getElementById("title").innerText =
+diseases[disease].title;
+
+document.getElementById("symptoms").innerText =
+diseases[disease].symptoms;
+
+document.getElementById("remedies").innerText =
+diseases[disease].remedies;
+
+document.getElementById("precautions").innerText =
+diseases[disease].precautions;
+
+}else{
+
+document.getElementById("title").innerText =
+"Disease Not Found";
+
+}
+
+</script>
+
+</body>
+</html>
