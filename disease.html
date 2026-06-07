@@ -4,35 +4,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Disease Details</title>
+<title>Namma Veetu Maruthuvam</title>
 
 <style>
 body{
     font-family:Arial,sans-serif;
     background:#f4fff4;
     padding:20px;
+    line-height:1.8;
 }
 
 .container{
-    max-width:800px;
+    max-width:900px;
     margin:auto;
 }
 
 .card{
     background:white;
     padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    border-radius:12px;
+    box-shadow:0 0 12px rgba(0,0,0,0.1);
 }
 
 h1{
     color:#2e7d32;
-    margin-bottom:15px;
-}
-
-h2{
-    color:#2e7d32;
-    margin-top:20px;
+    text-transform:capitalize;
 }
 
 .back-btn{
@@ -42,7 +38,16 @@ h2{
     background:#2e7d32;
     color:white;
     text-decoration:none;
-    border-radius:5px;
+    border-radius:6px;
+}
+
+.section{
+    margin-bottom:18px;
+}
+
+.tamil{
+    color:#444;
+    font-style:italic;
 }
 </style>
 
@@ -52,20 +57,13 @@ h2{
 
 <div class="container">
 
-<a href="index.html" class="back-btn">← Back to Diseases</a>
+<a href="index.html" class="back-btn">← Back</a>
 
 <div class="card">
 
-<h1 id="title">Disease</h1>
+<h1 id="title"></h1>
 
-<h2>Symptoms</h2>
-<p id="symptoms"></p>
-
-<h2>Home Remedies</h2>
-<p id="remedies"></p>
-
-<h2>Precautions</h2>
-<p id="precautions"></p>
+<div id="content"></div>
 
 </div>
 
@@ -76,73 +74,198 @@ h2{
 const diseases = {
 
 fever:{
-title:"Fever",
-symptoms:"High temperature, sweating, chills, weakness.",
-remedies:"Coriander Seed Tea, Raisin Water, Warm water with honey and lemon, plenty of rest and hydration.",
-precautions:"Consult a doctor if fever remains high or lasts more than 3 days."
+title:"Fever (காய்ச்சல்)",
+content:`
+<div class="section">
+<p>Fever is a condition where body temperature increases due to infection or illness.</p>
+<p class="tamil">காய்ச்சல் என்பது உடல் வெப்பம் அதிகரிக்கும் நிலை ஆகும்.</p>
+</div>
+
+<div class="section">
+<p>Drinking coriander seed water helps to reduce body heat naturally.</p>
+<p class="tamil">கொத்தமல்லி கஷாயம் குடிப்பது உடல் சூட்டை குறைக்க உதவுகிறது.</p>
+</div>
+
+<div class="section">
+<p>Drinking honey mixed with warm water gives energy and soothes the body.</p>
+<p class="tamil">தேன் கலந்த சூடான நீர் குடிப்பது உடலுக்கு சக்தி அளித்து நிம்மதி தருகிறது.</p>
+</div>
+
+<div class="section">
+<p>Wiping the body with cold water cloth helps to bring down fever.</p>
+<p class="tamil">குளிர்ந்த நீர் துணியால் உடலை துடைப்பது காய்ச்சலை குறைக்க உதவுகிறது.</p>
+</div>
+`
 },
 
 cold:{
-title:"Cold & Cough",
-symptoms:"Runny nose, sneezing, sore throat, cough.",
-remedies:"Pepper and Ginger Tea, Tulsi Decoction with Honey, Steam Inhalation, Camphor + Coconut Oil Application.",
-precautions:"Drink warm fluids and avoid cold foods."
+title:"Cold and Cough (சளி மற்றும் இருமல்)",
+content:`
+<div class="section">
+<p>Cold and cough are common infections that affect the nose and throat.</p>
+<p class="tamil">சளி மற்றும் இருமல் என்பது மூக்கு மற்றும் தொண்டையை பாதிக்கும் பொதுவான தொற்று.</p>
+</div>
+
+<div class="section">
+<p>Drinking ginger and tulsi tea helps to clear throat and reduce cough.</p>
+<p class="tamil">இஞ்சி மற்றும் துளசி தேநீர் குடிப்பது தொண்டை சுத்தமாகி இருமலை குறைக்கிறது.</p>
+</div>
+
+<div class="section">
+<p>Honey with pepper helps to reduce dry cough naturally.</p>
+<p class="tamil">தேன் மற்றும் மிளகு சேர்த்து எடுத்தால் உலர் இருமல் குறையும்.</p>
+</div>
+
+<div class="section">
+<p>Steam inhalation helps to open blocked nose and gives instant relief.</p>
+<p class="tamil">நீராவி சுவாசம் மூக்கடைப்பை திறந்து உடனடி நிம்மதி தருகிறது.</p>
+</div>
+`
 },
 
 headache:{
-title:"Headache",
-symptoms:"Pain in head, pressure around forehead, fatigue.",
-remedies:"Ginger Tea, Mint Tea, Eucalyptus Aroma, Camphor + Coconut Oil.",
-precautions:"Stay hydrated and get sufficient sleep."
-},
+title:"Headache (தலைவலி)",
+content:`
+<div class="section">
+<p>Headache is pain in the head caused by stress, fever, or tiredness.</p>
+<p class="tamil">தலைவலி என்பது மன அழுத்தம், காய்ச்சல் அல்லது சோர்வு காரணமாக ஏற்படும் வலி.</p>
+</div>
 
-migraine:{
-title:"Migraine",
-symptoms:"Severe headache, nausea, sensitivity to light.",
-remedies:"Dry Ginger Paste with Milk, Apply on forehead, Rest in dark room.",
-precautions:"Avoid loud noises and bright lights."
+<div class="section">
+<p>Applying coconut oil mixed with camphor helps to reduce headache.</p>
+<p class="tamil">தேங்காய் எண்ணெய் மற்றும் கற்பூரம் கலந்து தடவினால் தலைவலி குறையும்.</p>
+</div>
+
+<div class="section">
+<p>Drinking ginger tea improves blood flow and reduces pain.</p>
+<p class="tamil">இஞ்சி தேநீர் குடிப்பது இரத்த ஓட்டத்தை மேம்படுத்தி வலியை குறைக்கிறது.</p>
+</div>
+`
 },
 
 stomachache:{
-title:"Stomach Ache",
-symptoms:"Abdominal pain, bloating, discomfort.",
-remedies:"Cumin Water, Fennel Water with Honey, Aloe Vera Juice.",
-precautions:"Avoid spicy and oily foods."
+title:"Stomach Ache (வயிற்று வலி)",
+content:`
+<div class="section">
+<p>Stomach ache is pain in the abdomen due to digestion problems.</p>
+<p class="tamil">வயிற்று வலி என்பது செரிமான பிரச்சனையால் ஏற்படும் வலி.</p>
+</div>
+
+<div class="section">
+<p>Drinking cumin water helps in digestion and reduces pain.</p>
+<p class="tamil">சீரக நீர் குடிப்பது செரிமானத்தை மேம்படுத்தி வலியை குறைக்கிறது.</p>
+</div>
+
+<div class="section">
+<p>Fennel seed water helps to reduce gas and stomach discomfort.</p>
+<p class="tamil">சோம்பு நீர் வாயு மற்றும் வயிற்று உப்புசத்தை குறைக்கிறது.</p>
+</div>
+`
 },
 
 acidity:{
-title:"Acidity",
-symptoms:"Heartburn, indigestion, stomach discomfort.",
-remedies:"Buttermilk, Banana, Fennel Seed Water, Avoid oily foods.",
-precautions:"Eat small meals and avoid late-night eating."
+title:"Acidity (அசிடிட்டி)",
+content:`
+<div class="section">
+<p>Acidity is caused by excess acid in the stomach.</p>
+<p class="tamil">அசிடிட்டி என்பது வயிற்றில் அதிக அமிலம் உருவாகும் நிலை.</p>
+</div>
+
+<div class="section">
+<p>Buttermilk helps to cool the stomach and reduce acidity.</p>
+<p class="tamil">மோர் குடிப்பது வயிற்றை குளிர்வித்து அசிடிட்டியை குறைக்கிறது.</p>
+</div>
+
+<div class="section">
+<p>Banana helps to balance stomach acid naturally.</p>
+<p class="tamil">வாழைப்பழம் வயிற்று அமிலத்தை சமப்படுத்த உதவுகிறது.</p>
+</div>
+
+<div class="section">
+<p>Avoid oily and spicy foods to prevent acidity.</p>
+<p class="tamil">எண்ணெய் மற்றும் கார உணவுகளை தவிர்ப்பது அசிடிட்டியை தடுக்கிறது.</p>
+</div>
+`
 },
 
 constipation:{
-title:"Constipation",
-symptoms:"Difficulty passing stools, bloating.",
-remedies:"Fiber-rich fruits and vegetables, Warm Water, Ghee with Warm Water, Soaked Raisins.",
-precautions:"Increase water intake and exercise regularly."
+title:"Constipation (மலச்சிக்கல்)",
+content:`
+<div class="section">
+<p>Constipation is difficulty in passing stools regularly.</p>
+<p class="tamil">மலச்சிக்கல் என்பது மலத்தை சீராக வெளியேற்ற முடியாத நிலை.</p>
+</div>
+
+<div class="section">
+<p>Drinking warm water in the morning helps digestion.</p>
+<p class="tamil">காலை சூடான நீர் குடிப்பது செரிமானத்தை மேம்படுத்துகிறது.</p>
+</div>
+
+<div class="section">
+<p>Eating fiber-rich fruits and vegetables helps bowel movement.</p>
+<p class="tamil">நார்ச்சத்து நிறைந்த பழங்கள் மற்றும் காய்கறிகள் குடல் இயக்கத்தை மேம்படுத்தும்.</p>
+</div>
+`
 },
 
 diarrhoea:{
-title:"Diarrhoea",
-symptoms:"Loose stools, dehydration, stomach cramps.",
-remedies:"Rice Gruel with Salt, Pomegranate Juice, Buttermilk with Nutmeg, plenty of water.",
-precautions:"Stay hydrated and seek medical help if severe."
+title:"Diarrhoea (வயிற்றுப்போக்கு)",
+content:`
+<div class="section">
+<p>Diarrhoea is frequent loose motion caused by infection or food issues.</p>
+<p class="tamil">வயிற்றுப்போக்கு என்பது தொற்று அல்லது உணவு காரணமாக ஏற்படும் தளர்ந்த மலம்.</p>
+</div>
+
+<div class="section">
+<p>Drinking rice porridge helps to restore energy.</p>
+<p class="tamil">கஞ்சி குடிப்பது உடலுக்கு சக்தி தருகிறது.</p>
+</div>
+
+<div class="section">
+<p>Drink plenty of water to avoid dehydration.</p>
+<p class="tamil">நீரிழப்பு ஏற்படாமல் நிறைய தண்ணீர் குடிக்க வேண்டும்.</p>
+</div>
+`
 },
 
 asthma:{
-title:"Asthma",
-symptoms:"Shortness of breath, wheezing, chest tightness.",
-remedies:"Ginger Juice, Coriander Seed Water, Pranayama, Avoid dust and smoke.",
-precautions:"Keep away from triggers and follow medical advice."
+title:"Asthma (ஆஸ்துமா)",
+content:`
+<div class="section">
+<p>Asthma is a breathing problem caused by blocked airways.</p>
+<p class="tamil">ஆஸ்துமா என்பது காற்றுப்பாதை அடைபடுவதால் ஏற்படும் சுவாச பிரச்சனை.</p>
+</div>
+
+<div class="section">
+<p>Drinking tulsi water helps to improve breathing.</p>
+<p class="tamil">துளசி நீர் குடிப்பது சுவாசத்தை மேம்படுத்துகிறது.</p>
+</div>
+
+<div class="section">
+<p>Practicing pranayama improves lung capacity.</p>
+<p class="tamil">சுவாச பயிற்சி நுரையீரல் திறனை மேம்படுத்துகிறது.</p>
+</div>
+`
 },
 
 allergy:{
-title:"Allergy & Skin Problems",
-symptoms:"Itching, redness, skin irritation.",
-remedies:"Neem Leaf Paste, Aloe Vera Gel, Turmeric + Coconut Oil, Drink enough water.",
-precautions:"Avoid known allergens and maintain hygiene."
+title:"Skin Allergy (தோல் அலர்ஜி)",
+content:`
+<div class="section">
+<p>Skin allergy is irritation or rash on the skin.</p>
+<p class="tamil">தோல் அலர்ஜி என்பது தோலில் ஏற்படும் அரிப்பு அல்லது சிரங்கு.</p>
+</div>
+
+<div class="section">
+<p>Applying aloe vera gel soothes the skin.</p>
+<p class="tamil">ஆலோவேரா ஜெல் தோலை குளிர்வித்து நிம்மதி தருகிறது.</p>
+</div>
+
+<div class="section">
+<p>Turmeric paste helps to reduce infection and inflammation.</p>
+<p class="tamil">மஞ்சள் பூச்சு தொற்று மற்றும் வீக்கத்தை குறைக்கிறது.</p>
+</div>
+`
 }
 
 };
@@ -150,28 +273,17 @@ precautions:"Avoid known allergens and maintain hygiene."
 const params = new URLSearchParams(window.location.search);
 const disease = params.get("name");
 
-if(diseases[disease]){
+const data = diseases[disease];
 
-document.getElementById("title").innerText =
-diseases[disease].title;
-
-document.getElementById("symptoms").innerText =
-diseases[disease].symptoms;
-
-document.getElementById("remedies").innerText =
-diseases[disease].remedies;
-
-document.getElementById("precautions").innerText =
-diseases[disease].precautions;
-
-}else{
-
-document.getElementById("title").innerText =
-"Disease Not Found";
-
+if(data){
+document.getElementById("title").innerText = data.title;
+document.getElementById("content").innerHTML = data.content;
 }
-
+else{
+document.getElementById("title").innerText = "Disease Not Found";
+}
 </script>
 
 </body>
 </html>
+
