@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preparation</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4fff4;
+padding:20px;
+}
+
+.card{
+max-width:800px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+h1{
+color:#2e7d32;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1 id="title"></h1>
+
+<p id="content"></p>
+
+<br>
+
+<a href="javascript:history.back()">
+⬅ Back
+</a>
+
+</div>
+
+<script>
+
+const item =
+new URLSearchParams(window.location.search)
+.get("item");
+
+let title="";
+let content="";
+
+if(item=="coriander"){
+
+title="🌿 Coriander Seed Water";
+
+content=`
+English:
+
+Ingredients:
+• 1 tbsp coriander seeds
+• 2 cups water
+
+Preparation:
+Boil water, add coriander seeds and simmer for 10 minutes.
+Filter and drink warm.
+
+தமிழ்:
+
+தேவையான பொருட்கள்:
+• 1 மேசைக்கரண்டி கொத்தமல்லி விதை
+• 2 கப் தண்ணீர்
+
+செய்முறை:
+தண்ணீரை கொதிக்க வைத்து கொத்தமல்லி விதைகளை சேர்த்து 10 நிமிடம் கொதிக்க விடவும்.
+பின்னர் வடிகட்டி சூடாக குடிக்கவும்.
+`;
+
+}
+
+document.getElementById("title").innerText=title;
+document.getElementById("content").innerText=content;
+
+</script>
+
+</body>
+</html>
